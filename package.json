@@ -1,0 +1,21 @@
+{
+  "name": "@zhoyq/nothingapi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "doc": "gulp docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@e.coding.net:uquuu/nothingjs/NothingApi.git"
+  },
+  "author": "Zhoyq (feecback@zhoyq.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "docdash": "^1.2.0",
+    "gulp": "^4.0.2",
+    "gulp-jsdoc3": "^3.0.0"
+  }
+}

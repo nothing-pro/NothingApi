@@ -1,0 +1,44 @@
+{
+    "tags": {
+      "allowUnknownTags": false
+    },
+    "opts": {
+        "encoding": "utf8",
+        "recurse": true,
+        "private": false,
+        "lenient": true,
+        "destination": "./docs",
+        "template": "./node_modules/docdash"
+    },
+    "plugins": [
+      "plugins/markdown"
+    ],
+    "templates": {
+      "cleverLinks": false,
+      "monospaceLinks": false,
+      "default": {
+        "outputSourceFiles": false
+      },
+      "linenums": true,
+      "dateFormat": "MMMM Do YYYY, h:mm:ss a"
+    },
+    "docdash": {
+        "meta": {                       
+            "title": "NothingJs 接口文档",
+            "description": "NothingJs 接口文档",
+            "keyword": "NothingJs"
+        },
+        "static": true,
+        "sort": true,
+        "search": true,
+        "collapse": true,
+        "private": false,
+        "navLevel": 3,
+        "menu": {
+            "作者博客": {
+                "href": "https://www.zhoyq.com",
+                "target": "_blank"
+            }
+        }
+    }
+}

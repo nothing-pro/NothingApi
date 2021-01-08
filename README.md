@@ -9,6 +9,7 @@
 npm install -g tyarn --registry https://registry.npm.taobao.org
 tyarn --registry https://registry.npm.taobao.org
 # 生成文档
+tyarn doc
 ```
 
 ## 帮助

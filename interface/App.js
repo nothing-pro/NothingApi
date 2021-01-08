@@ -1,28 +1,44 @@
 
 export default class App {
   /**
-   * @classdesc 应用起始
-   * ```json
-   * {
-   *   el: 'el',
-   *   location: true,
-   *   environment: '',
-   *   model: '',
-   *   settings: '',
-   *   canvas: ''
-   * }
+   * @classdesc
+   * 应用程序类，用于创建应用程序。
+   * 
+   * **主要功能**
+   * 
+   * - 初始化应用程序（构造）
+   * - 全局事件管理（register、unregister、on、un、one、fire）
+   * - 渲染参数设置（setRenderingParameter、getRenderingParameter）
+   * - 对象挂载获取（camera、scene）
+   * - 增删启动扩展（use、unuse）
+   * - 模型等加载（load）
+   * - 获取gl运行时参数（getGL）
+   * - 查询节点（query）
+   * - UI
+   * 
+   * **实例1：创建应用程序**
+   * 
+   * ```js
+   * // 初始化应用程序时，创建默认环境。
+   * // 无参构造
+   * const app = new NOTHING.App();
+   * // 有参构造
+   * const app = new NOTHING.App({
+   *   el: 'divId'
+   * });
    * ```
-   *
-   * **当前可用配置**
-   *
-   * | 参数 | 值 |
-   * | - | - |
-   * | el | divId |
-   *
    * @constructor App
    * @author Zhoyq <feedback@zhoyq.com>
-   * @since 2020-12-17
+   * @since 2021-01-08
    * @param {object} options 配置选项
+   * 
+   * **可用参数**
+   * 
+   * ```json
+   * {
+   *   el: 'divId'
+   * }
+   * ```
    */
   constructor(options) {}
 

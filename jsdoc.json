@@ -29,7 +29,7 @@
             "keyword": "NothingJs"
         },
         "static": true,
-        "sort": true,
+        "sort": false,
         "search": true,
         "collapse": true,
         "private": false,

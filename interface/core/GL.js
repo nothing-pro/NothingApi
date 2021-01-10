@@ -1,6 +1,9 @@
 export default class GL {
   /**
+   * @classdesc GL运行时查询
    * @constructor GL
+   * @author Zhoyq <feedback@zhoyq.com>
+   * @since 2021-01-10
    */
   constructor() {}
 

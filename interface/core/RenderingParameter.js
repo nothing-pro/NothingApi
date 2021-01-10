@@ -1,6 +1,9 @@
 export default class RenderingParameter {
-    /**
-     * @constructor RenderingParameter
-     */
-    constructor() {}
+  /**
+   * @classdesc 渲染参数配置
+   * @constructor RenderingParameter
+   * @author Zhoyq <feedback@zhoyq.com>
+   * @since 2021-01-10
+   */
+  constructor() {}
 }

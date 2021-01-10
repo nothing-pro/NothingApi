@@ -15,16 +15,28 @@ export default class App {
    * - 查询节点（query）
    * - 接口封装 （funcMode()、commandMode()、objectMode()）默认是 面向对象模式。
    * 
-   * **实例1：创建应用程序**
+   * **实例**
    * 
    * ```js
-   * // 初始化应用程序时，创建默认环境。
-   * // 无参构造
-   * const app = new NOTHING.App();
-   * // 有参构造
-   * const app = new NOTHING.App({
+   * // 创建应用程序
+   * 
+   * const app = new NOTHING.App(); // 无参构造
+   * const app = new NOTHING.App({ // 有参构造
    *   el: 'divId'
    * });
+   * 
+   * // 加载模型文件
+   * 
+   * const node = await app.load('/path/to/model');
+   * 
+   * // 事件挂载
+   * 
+   * const eventId = app.on(NOTHING.CLICK, function(event) {});
+   * 
+   * // 节点查询
+   * // 按照 json 精确匹配属性查询 也可以使用 RegExp 对象进行模糊匹配
+   * 
+   * const list = app.query([{ id: '' }, { id: '' }]);
    * ```
    * @constructor App
    * @author Zhoyq <feedback@zhoyq.com>
@@ -110,67 +122,6 @@ export default class App {
    * @param {Map} extensions 扩展存储Map对象
    */
   async use(extensions) {}
-
-  // #endregion
-
-  // #region 全局事件管理
-  
-  /**
-   * 注册事件
-   * @memberof App#
-   * @method register
-   * @param {string} eventName 事件名称
-   * @param {function} eventFunc 事件回调
-   * @returns {number} eventId 事件ID 用于唯一定位
-   */
-  register(eventName, eventFunc) {}
-
-  /**
-   * 取消注册事件
-   * @memberof App#
-   * @method unregister
-   * @param {string} eventName 事件名称
-   * @param {string | number} eventId option 事件ID 用于唯一定位
-   */
-  unregister(eventName, eventId) {}
-
-  /**
-   * register 的缩写
-   * @memberof App#
-   * @method on
-   * @param {string} eventName 事件名称
-   * @param {function} eventFunc 事件回调
-   * @returns {number} eventId 事件ID 用于唯一定位
-   */
-  on(eventName, eventFunc) {}
-
-  /**
-   * unregister 的缩写
-   * @memberof App#
-   * @method un
-   * @param {string} eventName 事件名称
-   * @param {string | number} eventId option 事件ID 用于唯一定位
-   */
-  un(eventName, eventId) {}
-
-  /**
-   * 注册事件 仅发生一次
-   * @memberof App#
-   * @method one
-   * @param {string} eventName 事件名称
-   * @param {function} eventFunc 事件回调
-   * @returns {number} eventId 事件ID 用于唯一定位
-   */
-  one(eventName, eventFunc) {}
-
-  /**
-   * 触发事件
-   * @memberof App#
-   * @method fire
-   * @param {string} eventName 事件名称
-   * @param {object} additionalInfo 扩展信息
-   */
-  fire(eventName, additionalInfo) {}
 
   // #endregion
 

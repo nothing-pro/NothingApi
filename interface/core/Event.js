@@ -9,7 +9,7 @@ export default class Event {
 
   /**
    * 注册事件
-   * @memberof App#
+   * @memberof Event#
    * @method register
    * @param {string} eventName 事件名称
    * @param {Object} object 挂载事件的对象
@@ -20,7 +20,7 @@ export default class Event {
 
   /**
    * 取消注册事件
-   * @memberof App#
+   * @memberof Event#
    * @method unregister
    * @param {string} eventName 事件名称
    * @param {string | number} eventId option 事件ID 用于唯一定位
@@ -29,7 +29,7 @@ export default class Event {
 
   /**
    * register 的缩写
-   * @memberof App#
+   * @memberof Event#
    * @method on
    * @param {string} eventName 事件名称
    * @param {function} eventFunc 事件回调
@@ -39,7 +39,7 @@ export default class Event {
 
   /**
    * unregister 的缩写
-   * @memberof App#
+   * @memberof Event#
    * @method un
    * @param {string} eventName 事件名称
    * @param {string | number} eventId option 事件ID 用于唯一定位
@@ -48,7 +48,7 @@ export default class Event {
 
   /**
    * 注册事件 仅发生一次
-   * @memberof App#
+   * @memberof Event#
    * @method one
    * @param {string} eventName 事件名称
    * @param {function} eventFunc 事件回调
@@ -58,7 +58,7 @@ export default class Event {
 
   /**
    * 触发事件
-   * @memberof App#
+   * @memberof Event#
    * @method fire
    * @param {string} eventName 事件名称
    * @param {object} additionalInfo 扩展信息

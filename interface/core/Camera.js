@@ -1,6 +1,10 @@
 export default class Camera {
   /**
-   * @classdesc 相机控制对象
+   * @classdesc
+   * 相机控制对象
+   * 
+   * 不建议直接构造 会在app对象创建的时候自动生成
+   * 
    * @constructor Camera
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10

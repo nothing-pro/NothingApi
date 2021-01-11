@@ -4,10 +4,12 @@ export default class GL {
    * @constructor GL
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10
+   * @param {App} app 应用程序对象
    */
-  constructor() {}
+  constructor(app) {}
 
   /**
+   * 获取当前运行时支持的扩展
    * @memberof GL#
    * @method getSupportedExtensions
    */
@@ -15,17 +17,17 @@ export default class GL {
 
   /**
    * 获取 gl 参数
-   * @memberof App#
+   * @memberof GL#
    * @method getParameter
-   * @param {number} name 参数对应KEY值
+   * @param {number} queryParameter 参数对应KEY值
    */
-  async getParameter(name) {}
+  async getParameter(queryParameter) {}
 
   /**
    * 批量获取 gl 参数
-   * @memberof App#
+   * @memberof GL#
    * @method getParameters
-   * @param {Array} nameArr 参数对应KEY值
+   * @param {Array} queryParameters 参数对应KEY值数组
    */
-  async getParameters(nameArr) {}
+  async getParameters(queryParameters) {}
 }

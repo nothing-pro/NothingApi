@@ -1,3 +1,4 @@
+import Camera from "./Camera";
 
 export default class App {
   /**
@@ -62,6 +63,7 @@ export default class App {
    * 获取配置
    * @memberof App#
    * @method getSetting
+   * @returns {object} 配置
    */
   async getSetting() {}
 
@@ -69,6 +71,7 @@ export default class App {
    * 获取上下文内容
    * @memberof App#
    * @method getContext
+   * @returns {Context} 上下文
    */
   async getContext() {}
 
@@ -76,13 +79,16 @@ export default class App {
    * 获取相机控制器
    * @memberof App#
    * @method getCamera
+   * @returns {Camera} 相机控制
    */
   async getCamera() {}
 
   /**
    * 获取UI控制器
+   * @todo 暂时未完成
    * @memberof App#
    * @method getUI
+   * @returns {*} UI控制
    */
   async getUI() {}
 
@@ -92,6 +98,7 @@ export default class App {
 
   /**
    * 使用函数编程模式
+   * @todo 暂时未完成
    * @memberof App#
    * @method funcMode
    */
@@ -99,6 +106,7 @@ export default class App {
 
   /**
    * 使用命令编程模式
+   * @todo 暂时未完成
    * @memberof App#
    * @method commandMode
    */
@@ -106,6 +114,7 @@ export default class App {
 
   /**
    * 使用面向对象编程模式
+   * @todo 暂时未完成
    * @memberof App#
    * @method objectMode
    */
@@ -153,11 +162,18 @@ export default class App {
 
   /**
    * 获取 gl 对象 （仅提供查询）
+   * 
+   * ```js
+   * // 查询多个ID
+   * const list = app.query({id: 'id1'}, {id: 'id2'});
+   * // 使用正则匹配
+   * const list = app.query({id: /^id\d{1, 1}&'/});
+   * ```
    * @memberof App#
    * @method query
    * @returns {Array} 符合条件的node节点
    */
-  async query(id) {}
+  async query() {}
 
   // #endregion
 }

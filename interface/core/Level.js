@@ -6,5 +6,5 @@ export default class Level {
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10
    */
-  constructor() {}
+  constructor(scene, children) {}
 }

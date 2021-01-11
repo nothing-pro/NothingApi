@@ -5,33 +5,53 @@ export default class Context {
    * 
    * **主要功能**
    * 
-   * - 层级控制（changeLevel、setLevel）
+   * - 层级控制（getLevel、setLevel、setLevels）
+   * - 当前场景（getCurrentScene）
+   * 
    * @constructor Context
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10
+   * @param {App} app 应用程序对象
    */
-  constructor() {}
+  constructor(app) {}
 
-  setLevel() {}
-  changeLevel() {}
+  /**
+   * 设置级别配置
+   * 
+   * ```js
+   * // 创建级别
+   * const level1 = NOTHING.Level(scene1);
+   * const level = NOTHING.Level(scene, [level1]);
+   * app.getContext().setLevels(level);
+   * ```
+   * 
+   * @memberof Context#
+   * @method setLevels
+   * @param {Level} level 场景级别配置
+   */
+  setLevels(level) {}
+
+  /**
+   * 设置当前界别
+   * @memberof Context#
+   * @method setLevel
+   * @param {Level} level 当前场景级别
+   */
+  setLevel(level) {}
+
+  /**
+   * 获取当前级别
+   * @memberof Context#
+   * @method setLevel
+   * @returns {Level} 场景级别
+   */
+  getLevel() {}
+
+  /**
+   * 获取当前显示的场景
+   * @memberof Context#
+   * @method getCurrentScene
+   * @param {Scene} 场景
+   */
   getCurrentScene() {}
-
-  /**
-   * 设置渲染参数
-   * @memberof App#
-   * @method setRenderingParameter
-   * @param {string} key 渲染配置对应Key
-   * @param {object} val 渲染配置对应val
-   * @param {Scene} scene options 渲染场景
-   */
-  async setRenderingParameter(key, val, scene) { }
-
-  /**
-   * 获取渲染参数
-   * @memberof App#
-   * @method getRenderingParameter
-   * @param {string} key 渲染配置对应Key
-   * @param {Scene} scene 渲染场景
-   */
-  async getRenderingParameter(key, scene) { }
 }

@@ -96,11 +96,11 @@ export const SELECT = 'select';
  * @constant LEVEL_ENTER
  * @type {string}
  */
-export const LEVEL_ENTER = 'levelEnter';
+export const LEVELENTER = 'levelEnter';
 
 /**
  * 层级离开
  * @constant LEVEL_LEAVE
  * @type {string}
  */
-export const LEVEL_LEAVE = 'levelLeave';
+export const LEVELLEAVE = 'levelLeave';

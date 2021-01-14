@@ -4,8 +4,9 @@ export default class Scene {
    * @constructor Scene
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10
+   * @param {object} config 场景配置
    */
-  constructor() {}
+  constructor(config) {}
 
   /**
    * 获取场景级别
@@ -13,7 +14,7 @@ export default class Scene {
    * @method getLevel
    * @returns {Level} 级别
    */
-  getLevel() {}
+  async getLevel() {}
 
   /**
    * 设置渲染参数

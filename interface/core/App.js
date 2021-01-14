@@ -1,5 +1,3 @@
-import Camera from "./Camera";
-
 export default class App {
   /**
    * @classdesc
@@ -8,7 +6,7 @@ export default class App {
    * **主要功能**
    * 
    * - 初始化应用程序（构造）
-   * - 全局事件管理（register、unregister、on、un、one、fire）
+   * - 全局事件管理（on、off、one、trigger）
    * - 对象挂载获取（getCamera、getContext、getUI）
    * - 启动扩展（use）
    * - 模型等加载（load）
@@ -23,7 +21,7 @@ export default class App {
    * 
    * const app = new NOTHING.App(); // 无参构造
    * const app = new NOTHING.App({ // 有参构造
-   *   el: 'divId'
+   *   el: '#divId'
    * });
    * 
    * // 加载模型文件
@@ -48,10 +46,31 @@ export default class App {
    * 
    * ```json
    * {
-   *   el: 'divId'             // 挂载的divId
-   *   scenes: [],             // 加载的场景，兼容普通模型，nothing 等支持多场景 包含环境描述
-   *   renderingParameters: [] // 用于配合普通模型每个场景的渲染配置，nothing 模型自带场景配置不需要这个参数 nothing 也可以用于临时配置 覆盖原有配置
-   *   setting: {},            // 全局配置用于管理
+   *   el: '#divId'            // 可以使用 querySelector 查询的字符串 或者 HTMLDivElement 对象
+   *   definition: {           // 场景定义 scene 当前显示场景ID scenes 需要加载的场景地址 parameters 可选 渲染参数 levels 可选 用于定义层级
+   *     scene: '',
+   *     parameters: {
+   *       'id': {}
+   *     },
+   *     levels：{
+   *       name: ''            // 层级名称
+   *       scene: 'sceneid'
+   *       children: [
+   *         {
+   *           name: '',
+   *           scene: 'subsceneId',
+   *           children: []
+   *         }
+   *       ]
+   *     },
+   *     scenes: {
+   *       'id': {
+   *          url: ''
+   *          parameter: ''
+   *        }
+   *     }
+   *   },
+   *   setting: {}             // 预置配置
    * }
    * ```
    */
@@ -137,12 +156,12 @@ export default class App {
   // #region 模型等加载
 
   /**
-   * 加载场景 模型等
+   * 同 context.load
    * @memberof App#
    * @method load
-   * @param {URL} url 模型路径
+   * @param {object} scenes 配置
    */
-  async load(url) {}
+  load(scenes) {}
 
   // #endregion
 

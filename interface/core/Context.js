@@ -16,6 +16,23 @@ export default class Context {
   constructor(app) {}
 
   /**
+   * 加载场景
+   * @memberof App#
+   * @method load
+   * @param {object} scenes 配置
+   *
+   * ```json
+   * {
+   *   'sceneid': {
+   *      url:''
+   *      parameter: {}
+   *   }
+   * }
+   * ```
+   */
+  load(scenes) { }
+
+  /**
    * 设置级别配置
    * 
    * ```js
@@ -32,7 +49,7 @@ export default class Context {
   setLevels(level) {}
 
   /**
-   * 设置当前界别
+   * 设置当前级别
    * @memberof Context#
    * @method setLevel
    * @param {Level} level 当前场景级别

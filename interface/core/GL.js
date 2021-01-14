@@ -13,7 +13,7 @@ export default class GL {
    * @memberof GL#
    * @method getSupportedExtensions
    */
-  getSupportedExtensions() {}
+  async getSupportedExtensions() {}
 
   /**
    * 获取 gl 参数

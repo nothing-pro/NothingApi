@@ -1,13 +1,10 @@
-import { from } from 'pumpify';
 import App from './core/App.js';
 import {
   CLICK,
   LEVEL_ENTER,
   LEVEL_LEAVE
 } from './core/Events.js';
-import Event from './core/Event.js';
-
-const eventManager = new Event();
+import eventManager from './core/Event.js';
 
 export default {
   // event

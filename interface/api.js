@@ -1,16 +1,16 @@
 import App from './core/App.js';
 import {
   CLICK,
-  LEVEL_ENTER,
-  LEVEL_LEAVE
+  LEVELENTER,
+  LEVELLEAVE
 } from './core/Events.js';
 import eventManager from './core/Event.js';
 
 export default {
   // event
   CLICK,
-  LEVEL_ENTER,
-  LEVEL_LEAVE,
+  LEVELENTER,
+  LEVELLEAVE,
   // 单例对象
   /**
    * 事件管理单例

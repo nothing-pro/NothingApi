@@ -2,8 +2,6 @@
 
 本仓库用于定义 NothingJs 三维应用程序接口。
 
-包含面向对象、函数式以及命令行模式封装。
-
 ## 命令
 
 ```bash
@@ -13,6 +11,17 @@ tyarn --registry https://registry.npm.taobao.org
 # 生成文档
 tyarn doc
 ```
+
+## 目录
+
+- core 核心渲染
+- earth 地球
+- panoramic 全景
+- postEffect 图片后期
+
+## 文档
+
+- [结构说明](https://github.com/nothing-pro/NothingApi/blob/main/markdown/structures.md)
 
 ## 帮助
 

@@ -6,4 +6,14 @@ export default class Node {
    * @since 2021-01-10
    */
   constructor() {}
+
+  setX() {}
+  setY() {}
+  setZ() {}
+
+  getX() {}
+  getY() {}
+  getZ() {}
+
+  cloneTo() {}
 }

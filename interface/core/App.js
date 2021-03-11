@@ -9,8 +9,8 @@ export default class App {
    * - 全局事件管理（on、off、one、trigger）
    * - 对象挂载获取（getCamera、getContext、getUI）
    * - 启动扩展（use）
-   * - 模型等加载（load）
-   * - 获取gl运行时参数（getGL）
+   * - 模型等加载（load, loadPrototype）
+   * - 获取gl运行时参数（getGLParameter）
    * - 查询节点（query）
    * - 接口封装 （funcMode()、commandMode()、objectMode()）默认是 面向对象模式。
    * 
@@ -159,9 +159,18 @@ export default class App {
    * 同 context.load
    * @memberof App#
    * @method load
-   * @param {object} scenes 配置
+   * @param {object|string} scenes 对象或者路径
    */
-  load(scenes) {}
+  async load(scenes) {}
+  
+  /**
+   * 下载模型作为原型使用 并不加载到场景
+   * 返回 Node 节点
+   * @memberof App#
+   * @method loadPrototype
+   * @param {object|string} scenes 对象或者路径
+   */
+  async loadPrototype() {}
 
   // #endregion
 
@@ -170,10 +179,10 @@ export default class App {
   /**
    * 获取 gl 对象 （仅提供查询）
    * @memberof App#
-   * @method getGL
+   * @method getGLParams
    * @returns {GL} gl运行时对象
    */
-  getGL() {}
+  async getGLParameter() {}
 
   // #endregion
 

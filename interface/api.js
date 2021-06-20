@@ -1,36 +1,49 @@
 import App from './core/App.js';
-import {
-  CLICK,
-  LEVELENTER,
-  LEVELLEAVE
-} from './core/Events.js';
-import eventManager from './core/Event.js';
+
+/**
+ * **事件枚举**
+ * 
+ * @constant EVENTS
+ * @type {object}
+ */
+import * as EVENTS from './core/Events.js';
+
+/**
+ * **事件管理单例**
+ * 
+ * @constant EVENT
+ * @type {Event}
+ */
+import EVENT from './core/Event.js';
+
+/**
+ * **事件管理单例**
+ * 
+ * EVENT EVENTMANGER 的简写
+ * 
+ * @constant E 
+ * @type {Event}
+ */
+const E = EVENT;
+
+/**
+ * **事件管理单例**
+ * 
+ * @constant EVENTMANAGER
+ * @type {Event}
+ */
+const EVENTMANAGER = EVENT;
 
 export default {
-  // event
-  CLICK,
-  LEVELENTER,
-  LEVELLEAVE,
-  // 单例对象
-  /**
-   * 事件管理单例
-   * @constant EVENT
-   * @type {Event}
-   */
-  EVENT: eventManager,
-  /**
-   * 背景枚举
-   * @constant BACKGROUND
-   * @type {object}
-   */
-  BACKGROUND: {
-    COLOR: 'BACKGROUND_COLOR',
-    IMAGE: 'BACKGROUND_IMAGE',
-    ENV: 'BACKGROUND_ENV',
-    SKY: 'BACKGROUND_SKY'
-  },
-  // class
+  // 事件枚举
+  EVENTS,
+  ...EVENTS,
+  // 事件管理
+  EVENT,
+  E,
+  EVENTMANAGER,
+  // 类
   App,
-  // version
+  // 版本
   VERSION: '1.0.0'
 };

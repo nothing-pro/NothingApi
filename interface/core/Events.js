@@ -93,14 +93,14 @@ export const SELECT = 'select';
 
 /**
  * 层级进入
- * @constant LEVEL_ENTER
+ * @constant LEVELENTER
  * @type {string}
  */
 export const LEVELENTER = 'levelEnter';
 
 /**
  * 层级离开
- * @constant LEVEL_LEAVE
+ * @constant LEVELLEAVE
  * @type {string}
  */
 export const LEVELLEAVE = 'levelLeave';

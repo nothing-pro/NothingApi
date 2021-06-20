@@ -5,32 +5,28 @@ export default class App {
    * 
    * **主要功能**
    * 
-   * - 初始化应用程序（构造）
-   * - 全局事件管理（on、off、one、trigger）
-   * - 对象挂载获取（getCamera、getContext、getUI）
-   * - 启动扩展（use）
-   * - 模型等加载（load, loadPrototype）
-   * - 获取gl运行时参数（getGLParameter）
-   * - 查询节点（query）
-   * - 接口封装 （funcMode()、commandMode()、objectMode()）默认是 面向对象模式。
+   * - 构造函数
+   * - 对象
+   * - 扩展
+   * - 加载
+   * - 查询
    * 
    * **实例**
    * 
    * ```js
    * // 创建应用程序
-   * 
-   * const app = new NOTHING.App(); // 无参构造
-   * const app = new NOTHING.App({ // 有参构造
-   *   el: '#divId'
-   * });
+   * // 注：NT 是 NOTHING 的简写
+   *
+   * const app = new NT.App();
    * 
    * // 加载模型文件
    * 
-   * const node = await app.load('/path/to/model');
+   * const node = await app.load('/path/to/node');
    * 
    * // 事件挂载
+   * // 注：E 是 EVENT 的简写
    * 
-   * const eventId = app.on(NOTHING.CLICK, function(event) {});
+   * NT.E.on(NT.CLICK, function(event) {});
    * 
    * // 节点查询
    * // 按照 json 精确匹配属性查询 也可以使用 RegExp 对象进行模糊匹配
@@ -42,52 +38,79 @@ export default class App {
    * @since 2021-01-08
    * @param {object} options 配置选项
    * 
-   * **可用参数**
-   * 
    * ```json
    * {
-   *   el: '#divId'            // 可以使用 querySelector 查询的字符串 或者 HTMLDivElement 对象
-   *   definition: {           // 场景定义 scene 当前显示场景ID scenes 需要加载的场景地址 parameters 可选 渲染参数 levels 可选 用于定义层级
-   *     scene: '',
+   *   el: '<selector>',
+   *   definition: {
+   *     scene: '<sceneId>',
    *     parameters: {
-   *       'id': {}
+   *       '<paramterId>': {}
    *     },
    *     levels：{
-   *       name: ''            // 层级名称
-   *       scene: 'sceneid'
-   *       children: [
-   *         {
-   *           name: '',
-   *           scene: 'subsceneId',
-   *           children: []
-   *         }
-   *       ]
+   *       '<levelId>': {
+   *         name: '',
+   *         showType: '',
+   *         location: '<nodeId>',
+   *         nodes: ['<nodeId>'],
+   *         children: ['<subLevelId>'],
+   *       },
    *     },
    *     scenes: {
-   *       'id': {
-   *          url: ''
-   *          parameter: ''
+   *       '<sceneId>': {
+   *          parameter: '<parameterId>'
    *        }
    *     }
    *   },
-   *   setting: {}             // 预置配置
+   *   urls：'',
+   *   setting: {
+   *     levelShowType: '',
+   *     dynamicLoad: false,
+   *   }
    * }
    * ```
+   * 
+   * - el 指的是挂载对象。
+   * - selector 可以是选择器，同时还支持 HTMLDivElement 对象。
+   * - definition 是 context 定义 在没有定义 urls 的时候，会按照 definition 初始化，存在 urls 的时候会将 definition 中定义的内容覆盖到 urls 获取的内容中。
+   * - definition 的详细定义可以参照 Context 对象。
+   * - urls 可以是字符串或者数组，内容是url，用于获取相关数据。
+   * - setting 是全局配置，关乎应用整体的相应以及动作。
    */
   constructor(options) {}
 
-  // #region 对象挂载获取
+  // #region 开始
+  /**
+   * **启动应用程序渲染**
+   * 
+   * @memberof App#
+   * @method start
+   */
+  async start() {}
+  // #endregion
+
+  // #region 对象
 
   /**
-   * 获取配置
+   * **获取全局配置**
+   * 
+   * ```json
+   * {
+   *   levelShowType: 'single', // transparent
+   *   dynamicLoad: false,
+   * }
+   * ```
+   * 
+   * - levelShowType 全局级别显示设置 single 单独显示子级别 或者 transparent 将其他物体透明并突出显示子级别 
+   * - dynamicLoad 动态加载开关
    * @memberof App#
    * @method getSetting
-   * @returns {object} 配置
+   * @returns {Map} 配置
    */
   async getSetting() {}
 
   /**
-   * 获取上下文内容
+   * **获取上下文内容**
+   * 
    * @memberof App#
    * @method getContext
    * @returns {Context} 上下文
@@ -95,56 +118,30 @@ export default class App {
   async getContext() {}
 
   /**
-   * 获取相机控制器
+   * **获取相机控制器**
+   * 
    * @memberof App#
-   * @method getCamera
-   * @returns {Camera} 相机控制
+   * @method getCameraController
+   * @returns {CameraController} 相机控制器
    */
-  async getCamera() {}
+  async getCameraController() {}
 
-  /**
-   * 获取UI控制器
-   * @todo 暂时未完成
+   /**
+   * **获取 GL 对象的只读封装**
+   * 
    * @memberof App#
-   * @method getUI
-   * @returns {*} UI控制
+   * @method getGL
+   * @returns {GL} GL 对象的只读封装
    */
-  async getUI() {}
-
-  // #endregion
-
-  // #region 接口模式封装
-
-  /**
-   * 使用函数编程模式
-   * @todo 暂时未完成
-   * @memberof App#
-   * @method funcMode
-   */
-  funcMode() {}
-
-  /**
-   * 使用命令编程模式
-   * @todo 暂时未完成
-   * @memberof App#
-   * @method commandMode
-   */
-  commandMode() {}
-
-  /**
-   * 使用面向对象编程模式
-   * @todo 暂时未完成
-   * @memberof App#
-   * @method objectMode
-   */
-  objectMode() {}
+    async getGL() {}
 
   // #endregion
   
-  // #region 启动扩展
+  // #region 扩展
 
   /**
-   * 添加扩展
+   * **添加扩展**
+   * 
    * @memberof App#
    * @method use
    * @param {Map} extensions 扩展存储Map对象
@@ -153,55 +150,54 @@ export default class App {
 
   // #endregion
 
-  // #region 模型等加载
+  // #region 加载
 
   /**
-   * 同 context.load
+   * **加载并添加到上下文中进行渲染**
+   * 
+   * 可以加载链接或者完整对象
+   * 
    * @memberof App#
    * @method load
-   * @param {object|string} scenes 对象或者路径
+   * @param {array|string} urls 加载路径或者其数组
    */
-  async load(scenes) {}
+  async load(urls) {}
   
   /**
+   * **加载数据**
+   * 
    * 下载模型作为原型使用 并不加载到场景
-   * 返回 Node 节点
+   *
    * @memberof App#
    * @method loadPrototype
-   * @param {object|string} scenes 对象或者路径
+   * @param {array|string} urls 加载路径或者其数组
+   * @returns {Node} node 节点
    */
-  async loadPrototype() {}
+  async loadPrototype(urls) {}
 
   // #endregion
 
-  // #region 获取gl运行时参数
+  // #region 查询
 
   /**
-   * 获取 gl 对象 （仅提供查询）
-   * @memberof App#
-   * @method getGLParams
-   * @returns {GL} gl运行时对象
-   */
-  async getGLParameter() {}
-
-  // #endregion
-
-  // #region 查询节点
-
-  /**
-   * 获取 gl 对象 （仅提供查询）
+   * **查询相关节点**
    * 
    * ```js
    * // 查询多个ID
-   * const list = app.query({id: 'id1'}, {id: 'id2'});
+   * 
+   * const list = app.query([{id: 'id1'}, {id: 'id2'}]);
+   * 
    * // 使用正则匹配
-   * const list = app.query({id: /^id\d{1, 1}&'/});
+   * 
+   * const list = app.query([{id: /^id\d{1, 1}&'/}]);
    * ```
+   * 
    * @memberof App#
    * @method query
+   * @param {array} params 查询参数
    * @returns {Array} 符合条件的node节点
    */
-  async query() {}
+  async query(params) {}
 
   // #endregion
 }

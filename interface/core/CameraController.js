@@ -1,11 +1,11 @@
-export default class Camera {
+export default class CameraController {
   /**
    * @classdesc
    * 相机控制对象
    * 
    * 不建议直接构造 会在app对象创建的时候自动生成
    * 
-   * @constructor Camera
+   * @constructor CameraController
    * @author Zhoyq <feedback@zhoyq.com>
    * @since 2021-01-10
    * @param {App} app 应用程序对象

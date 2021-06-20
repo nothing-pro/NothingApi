@@ -1,6 +1,6 @@
 const earth = new NOTHING.Earth({
   el: '#divId',
-  url: ''
+  urls: ''
 });
 
 earth.start();
